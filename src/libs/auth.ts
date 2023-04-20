@@ -3,7 +3,7 @@ import { UpstashRedisAdapter } from '@next-auth/upstash-redis-adapter';
 import type { NextAuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 
-import { GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SERCRET } from '../config';
+import { GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SERCRET, AUTH_SECRET } from '../config';
 
 import { db } from './db';
 
@@ -23,6 +23,7 @@ const getGoogleCredintials = () => {
 };
 
 export const authOptions: NextAuthOptions = {
+  secret: AUTH_SECRET,
   adapter: UpstashRedisAdapter(db),
   session: {
     strategy: 'jwt',

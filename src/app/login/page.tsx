@@ -1,11 +1,9 @@
 'use client';
 
 import { NextPage } from 'next';
-import Image from 'next/image';
 
 import { signIn } from 'next-auth/react';
 
-import GoogleIcon from '../../../public/google.svg';
 import { Button } from '../../components/Elements/Button';
 
 import styles from './page.module.css';
@@ -23,7 +21,6 @@ const Login: NextPage = () => {
     <div className={styles.root}>
       <h1 className={styles.title}>ログイン</h1>
       <Button type="button" onClick={onClickLoginHandler} className={styles.button}>
-        <Image src={GoogleIcon} alt="google" />
         <span>Google</span>
       </Button>
     </div>
